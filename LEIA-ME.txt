@@ -1,0 +1,10 @@
+SITE GAMER DUO V4
+
+1. Extraia o ZIP e abra index.html.
+2. Para editar os nomes, descrições, fotos e links dos DOIS jogadores, abra script.js e altere o objeto jogadores no início.
+3. Para usar foto, coloque o arquivo na pasta principal (por exemplo foto1.png) e escreva foto:'foto1.png' para player1; nas páginas internas a foto precisa do caminho ../foto1.png, então recomendamos usar um URL público de imagem HTTPS, ou adaptar o código.
+4. Envie TODOS os arquivos e as pastas player1 e player2 ao repositório GitHub.
+5. Em Settings > Pages, selecione Deploy from a branch, branch main, pasta /(root), e Save.
+6. Endereço esperado: https://SEUUSUARIO.github.io/site-gamer/ (somente depois da publicação).
+7. Páginas individuais: /player1/ e /player2/.
+8. Não há integração automática com status de live; links vazios aparecem como em breve.
