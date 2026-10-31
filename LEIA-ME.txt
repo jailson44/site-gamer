@@ -1,0 +1,23 @@
+GAMER HUB DUO - SITE PARA DOIS JOGADORES
+
+ESTRUTURA:
+index.html - pagina inicial com os dois jogadores
+style.css - visual gamer neon
+script.js - estrelas, nomes e links dos dois jogadores
+player1/index.html - perfil do jogador 1
+player2/index.html - perfil do jogador 2
+
+PERSONALIZAR:
+Abra script.js e altere os campos name e links de player1 e player2.
+Os links vazios mostram EM BREVE.
+
+PUBLICAR NO GITHUB:
+1. Extraia o ZIP para uma pasta normal do Windows.
+2. No repositorio site-gamer, use Add file > Upload files.
+3. Arraste TODOS os arquivos e pastas para a area de upload.
+4. Confira player1/index.html e player2/index.html antes do commit.
+5. Clique Commit changes.
+6. Confira Settings > Pages: main / (root).
+7. Aguarde a publicacao e abra https://jailson44.github.io/site-gamer/
+
+Nao envie a pasta gamer-hub-duo como uma pasta adicional dentro do repositorio; envie o CONTEUDO dela para a raiz.

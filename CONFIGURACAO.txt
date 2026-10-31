@@ -1,0 +1,28 @@
+GAMER HUB DUO — CONFIGURAÇÃO DO PAINEL
+
+IMPORTANTE: O site está pronto, mas os logins e salvamento só funcionam depois de conectar seu próprio projeto Supabase. Não há senhas embutidas no ZIP.
+
+1. Crie um projeto no Supabase (https://supabase.com/dashboard).
+2. Em SQL Editor, execute todo o arquivo supabase-setup.sql.
+3. Em Authentication > Providers > Email, DESATIVE Confirm email. Sem isso, usuários com endereços fictícios não conseguem entrar. Como esses e-mails são fictícios, recuperação de senha por e-mail NÃO funciona. A senha deve ser redefinida manualmente no painel do Supabase.
+4. Em Authentication > Users, crie 3 usuários usando "Add user" com "Auto Confirm User" ativado:
+   admin@gamerhub.invalid
+   jogador1@gamerhub.invalid
+   jogador2@gamerhub.invalid
+   Defina senhas fortes e diferentes diretamente no Supabase. NÃO escreva as senhas nos arquivos públicos.
+5. Copie os UUIDs (User UID) dos 3 usuários criados. No SQL Editor, execute:
+   insert into public.user_roles(user_id,role,player_key) values
+   ('UUID_DO_ADMIN','admin',null),
+   ('UUID_DO_JOGADOR1','player','player1'),
+   ('UUID_DO_JOGADOR2','player','player2');
+   Substitua cada UUID pelo UID real correspondente.
+6. Em Project Settings > API (ou Connect), copie Project URL e a chave PÚBLICA anon/publishable. Preencha config.js. NUNCA use service_role/secret.
+7. Envie todo o conteúdo extraído deste ZIP para a raiz do repositório GitHub Pages. Mantenha player1/, player2/ e admin/.
+8. Abra https://jailson44.github.io/site-gamer/admin/ e entre usando admin, jogador1 ou jogador2 + a senha correspondente.
+
+Permissões: administrador edita os dois perfis. Jogadores editam só o próprio perfil. Regras RLS protegem os dados mesmo se alguém manipular o navegador.
+
+Fotos: upload JPG/PNG/WEBP/GIF até 5 MB, armazenadas no bucket público gamer-media. Excluir um item da galeria remove o registro, mas NÃO apaga automaticamente o arquivo enviado do armazenamento (limpeza pode ser feita no painel Supabase).
+Clipes: cole o link do YouTube/Twitch. Não há upload de vídeos pesados.
+Contador: opcional, serviço externo visitorbadge.io, conta visualizações, não visitantes únicos.
+Atenção: o plano grátis Supabase tem limites e pode pausar por inatividade.

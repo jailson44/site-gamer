@@ -1,0 +1,11 @@
+// PERSONALIZE AQUI: altere os nomes e links dos dois jogadores.
+// Use URLs completas começando com https://. Links vazios aparecem como "Em breve".
+const PLAYERS = {
+  player1: { name: 'JOGADOR 1', links: { Twitch: '', YouTube: '', TikTok: '', Instagram: '', Discord: '' } },
+  player2: { name: 'JOGADOR 2', links: { Twitch: '', YouTube: '', TikTok: '', Instagram: '', Discord: '' } }
+};
+const icons={Twitch:'🟣',YouTube:'▶️',TikTok:'🎵',Instagram:'📸',Discord:'💬'};
+document.querySelectorAll('[data-name]').forEach(el=>{const p=PLAYERS[el.dataset.name];if(p)el.textContent=p.name});
+const grid=document.querySelector('#linkGrid');if(grid){const p=PLAYERS[grid.dataset.player];if(p){for(const [network,url] of Object.entries(p.links)){const a=document.createElement('a');a.className='linkcard';a.href=url||'#';if(url){a.target='_blank';a.rel='noopener noreferrer'}else a.addEventListener('click',e=>e.preventDefault());const icon=document.createElement('span');icon.className='emoji';icon.textContent=icons[network]||'✦';const info=document.createElement('span');const title=document.createElement('strong');title.textContent=network;const sub=document.createElement('small');sub.textContent=url?'VISITAR PERFIL':'EM BREVE · ADICIONE SEU LINK';info.append(title,sub);const arrow=document.createElement('span');arrow.className='arrow';arrow.textContent='↗';a.append(icon,info,arrow);grid.append(a)}}}
+const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();
+const canvas=document.querySelector('#stars');if(canvas){const ctx=canvas.getContext('2d');if(ctx){let stars=[],w=0,h=0;function resize(){w=canvas.width=innerWidth;h=canvas.height=innerHeight;stars=Array.from({length:Math.min(140,Math.floor(w*h/9000))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,s:Math.random()*.35+.08,a:Math.random()*.65+.2}))}resize();addEventListener('resize',resize);function draw(){ctx.clearRect(0,0,w,h);for(const s of stars){ctx.beginPath();ctx.fillStyle=`rgba(120,224,255,${s.a})`;ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();s.y+=s.s;if(s.y>h)s.y=0}requestAnimationFrame(draw)}if(!matchMedia('(prefers-reduced-motion: reduce)').matches)draw();else{for(const s of stars){ctx.fillStyle=`rgba(120,224,255,${s.a})`;ctx.fillRect(s.x,s.y,s.r,s.r)}}}}
